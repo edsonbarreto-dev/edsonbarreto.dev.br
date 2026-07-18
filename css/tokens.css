@@ -1,0 +1,357 @@
+/*
+ * Edson Barreto — Design Tokens
+ * edsonbarreto.dev.br
+ *
+ * Organização:
+ * 1. Tipografia
+ * 2. Cores primitivas
+ * 3. Cores semânticas
+ * 4. Espaçamento
+ * 5. Dimensões e layout
+ * 6. Bordas e raios
+ * 7. Sombras
+ * 8. Movimento
+ * 9. Camadas
+ * 10. Tema escuro
+ */
+
+:root {
+    color-scheme: light;
+
+    /* =========================================================
+     * 1. TIPOGRAFIA
+     * ========================================================= */
+
+    --font-family-sans:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+    --font-family-mono:
+            "JetBrains Mono",
+            "SFMono-Regular",
+            Consolas,
+            "Liberation Mono",
+            monospace;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+    --font-size-3xl: clamp(2rem, 1.6rem + 2vw, 3rem);
+    --font-size-4xl: clamp(2.5rem, 1.9rem + 3vw, 4rem);
+    --font-size-display: clamp(3rem, 2rem + 5vw, 5.5rem);
+
+    --line-height-tight: 1.1;
+    --line-height-snug: 1.3;
+    --line-height-normal: 1.6;
+    --line-height-relaxed: 1.75;
+
+    --letter-spacing-tight: -0.03em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.04em;
+    --letter-spacing-wider: 0.08em;
+
+    /* =========================================================
+     * 2. CORES PRIMITIVAS
+     * ========================================================= */
+
+    --color-white: #ffffff;
+    --color-black: #080b12;
+
+    --color-neutral-50: #f8fafc;
+    --color-neutral-100: #f1f5f9;
+    --color-neutral-200: #e2e8f0;
+    --color-neutral-300: #cbd5e1;
+    --color-neutral-400: #94a3b8;
+    --color-neutral-500: #64748b;
+    --color-neutral-600: #475569;
+    --color-neutral-700: #334155;
+    --color-neutral-800: #1e293b;
+    --color-neutral-900: #0f172a;
+    --color-neutral-950: #080d19;
+
+    --color-brand-50: #eff6ff;
+    --color-brand-100: #dbeafe;
+    --color-brand-200: #bfdbfe;
+    --color-brand-300: #93c5fd;
+    --color-brand-400: #60a5fa;
+    --color-brand-500: #3b82f6;
+    --color-brand-600: #2563eb;
+    --color-brand-700: #1d4ed8;
+    --color-brand-800: #1e40af;
+    --color-brand-900: #1e3a8a;
+    --color-brand-950: #172554;
+
+    --color-success-50: #ecfdf5;
+    --color-success-500: #10b981;
+    --color-success-700: #047857;
+
+    --color-warning-50: #fffbeb;
+    --color-warning-500: #f59e0b;
+    --color-warning-700: #b45309;
+
+    --color-danger-50: #fef2f2;
+    --color-danger-500: #ef4444;
+    --color-danger-700: #b91c1c;
+
+    /* =========================================================
+     * 3. CORES SEMÂNTICAS
+     * ========================================================= */
+
+    --color-background-canvas: var(--color-white);
+    --color-background-subtle: var(--color-neutral-50);
+    --color-background-muted: var(--color-neutral-100);
+    --color-background-elevated: var(--color-white);
+    --color-background-inverse: var(--color-neutral-950);
+
+    --color-text-primary: var(--color-neutral-900);
+    --color-text-secondary: var(--color-neutral-600);
+    --color-text-muted: var(--color-neutral-500);
+    --color-text-inverse: var(--color-white);
+    --color-text-link: var(--color-brand-700);
+    --color-text-link-hover: var(--color-brand-800);
+
+    --color-border-subtle: var(--color-neutral-200);
+    --color-border-default: var(--color-neutral-300);
+    --color-border-strong: var(--color-neutral-500);
+
+    --color-action-primary: var(--color-brand-700);
+    --color-action-primary-hover: var(--color-brand-800);
+    --color-action-primary-active: var(--color-brand-900);
+    --color-action-primary-text: var(--color-white);
+
+    --color-action-secondary: var(--color-neutral-100);
+    --color-action-secondary-hover: var(--color-neutral-200);
+    --color-action-secondary-text: var(--color-neutral-900);
+
+    --color-focus-ring: var(--color-brand-500);
+    --color-selection-background: var(--color-brand-200);
+    --color-selection-text: var(--color-brand-950);
+
+    --color-status-success-background: var(--color-success-50);
+    --color-status-success-text: var(--color-success-700);
+
+    --color-status-warning-background: var(--color-warning-50);
+    --color-status-warning-text: var(--color-warning-700);
+
+    --color-status-danger-background: var(--color-danger-50);
+    --color-status-danger-text: var(--color-danger-700);
+
+    /* =========================================================
+     * 4. ESPAÇAMENTO
+     * ========================================================= */
+
+    --space-0: 0;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+
+    --space-section: clamp(4rem, 8vw, 8rem);
+    --space-page-inline: clamp(1rem, 4vw, 2rem);
+
+    /* =========================================================
+     * 5. DIMENSÕES E LAYOUT
+     * ========================================================= */
+
+    --content-width-xs: 32rem;
+    --content-width-sm: 40rem;
+    --content-width-md: 48rem;
+    --content-width-lg: 64rem;
+    --content-width-xl: 75rem;
+
+    --content-width-reading: 68ch;
+
+    --header-height: 4.5rem;
+
+    --icon-size-sm: 1rem;
+    --icon-size-md: 1.25rem;
+    --icon-size-lg: 1.5rem;
+
+    /* =========================================================
+     * 6. BORDAS E RAIOS
+     * ========================================================= */
+
+    --border-width-thin: 1px;
+    --border-width-medium: 2px;
+
+    --radius-none: 0;
+    --radius-sm: 0.375rem;
+    --radius-md: 0.625rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-full: 9999px;
+
+    /* =========================================================
+     * 7. SOMBRAS
+     * ========================================================= */
+
+    --shadow-xs:
+            0 1px 2px rgb(15 23 42 / 0.05);
+
+    --shadow-sm:
+            0 1px 3px rgb(15 23 42 / 0.08),
+            0 1px 2px rgb(15 23 42 / 0.05);
+
+    --shadow-md:
+            0 8px 24px rgb(15 23 42 / 0.08);
+
+    --shadow-lg:
+            0 20px 50px rgb(15 23 42 / 0.12);
+
+    --shadow-focus:
+            0 0 0 3px rgb(59 130 246 / 0.35);
+
+    /* =========================================================
+     * 8. MOVIMENTO
+     * ========================================================= */
+
+    --duration-fast: 120ms;
+    --duration-normal: 200ms;
+    --duration-slow: 320ms;
+
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --ease-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    --transition-color:
+            color var(--duration-fast) var(--ease-standard),
+            background-color var(--duration-fast) var(--ease-standard),
+            border-color var(--duration-fast) var(--ease-standard);
+
+    --transition-transform:
+            transform var(--duration-normal) var(--ease-emphasized);
+
+    /* =========================================================
+     * 9. CAMADAS
+     * ========================================================= */
+
+    --z-index-base: 0;
+    --z-index-header: 100;
+    --z-index-dropdown: 200;
+    --z-index-overlay: 300;
+    --z-index-modal: 400;
+    --z-index-toast: 500;
+}
+
+/* =========================================================
+ * 10. TEMA ESCURO EXPLÍCITO
+ * Ativado com: <html data-theme="dark">
+ * ========================================================= */
+
+[data-theme="dark"] {
+    color-scheme: dark;
+
+    --color-background-canvas: var(--color-neutral-950);
+    --color-background-subtle: var(--color-neutral-900);
+    --color-background-muted: var(--color-neutral-800);
+    --color-background-elevated: var(--color-neutral-900);
+    --color-background-inverse: var(--color-white);
+
+    --color-text-primary: var(--color-neutral-50);
+    --color-text-secondary: var(--color-neutral-300);
+    --color-text-muted: var(--color-neutral-400);
+    --color-text-inverse: var(--color-neutral-950);
+    --color-text-link: var(--color-brand-300);
+    --color-text-link-hover: var(--color-brand-200);
+
+    --color-border-subtle: var(--color-neutral-800);
+    --color-border-default: var(--color-neutral-700);
+    --color-border-strong: var(--color-neutral-500);
+
+    --color-action-primary: var(--color-brand-500);
+    --color-action-primary-hover: var(--color-brand-400);
+    --color-action-primary-active: var(--color-brand-300);
+    --color-action-primary-text: var(--color-neutral-950);
+
+    --color-action-secondary: var(--color-neutral-800);
+    --color-action-secondary-hover: var(--color-neutral-700);
+    --color-action-secondary-text: var(--color-neutral-50);
+
+    --color-focus-ring: var(--color-brand-400);
+    --color-selection-background: var(--color-brand-700);
+    --color-selection-text: var(--color-white);
+
+    --shadow-xs:
+            0 1px 2px rgb(0 0 0 / 0.2);
+
+    --shadow-sm:
+            0 2px 8px rgb(0 0 0 / 0.24);
+
+    --shadow-md:
+            0 12px 32px rgb(0 0 0 / 0.3);
+
+    --shadow-lg:
+            0 24px 64px rgb(0 0 0 / 0.4);
+}
+
+/* =========================================================
+ * TEMA ESCURO AUTOMÁTICO
+ * Só entra quando não existe escolha explícita.
+ * ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+
+        --color-background-canvas: var(--color-neutral-950);
+        --color-background-subtle: var(--color-neutral-900);
+        --color-background-muted: var(--color-neutral-800);
+        --color-background-elevated: var(--color-neutral-900);
+        --color-background-inverse: var(--color-white);
+
+        --color-text-primary: var(--color-neutral-50);
+        --color-text-secondary: var(--color-neutral-300);
+        --color-text-muted: var(--color-neutral-400);
+        --color-text-inverse: var(--color-neutral-950);
+        --color-text-link: var(--color-brand-300);
+        --color-text-link-hover: var(--color-brand-200);
+
+        --color-border-subtle: var(--color-neutral-800);
+        --color-border-default: var(--color-neutral-700);
+        --color-border-strong: var(--color-neutral-500);
+
+        --color-action-primary: var(--color-brand-500);
+        --color-action-primary-hover: var(--color-brand-400);
+        --color-action-primary-active: var(--color-brand-300);
+        --color-action-primary-text: var(--color-neutral-950);
+
+        --color-action-secondary: var(--color-neutral-800);
+        --color-action-secondary-hover: var(--color-neutral-700);
+        --color-action-secondary-text: var(--color-neutral-50);
+
+        --color-focus-ring: var(--color-brand-400);
+        --color-selection-background: var(--color-brand-700);
+        --color-selection-text: var(--color-white);
+    }
+}
+
+/* Reduz animações quando solicitado pelo sistema operacional. */
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duration-fast: 0ms;
+        --duration-normal: 0ms;
+        --duration-slow: 0ms;
+    }
+}

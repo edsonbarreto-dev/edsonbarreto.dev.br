@@ -1,0 +1,209 @@
+/*
+ * Edson Barreto — Layout
+ *
+ * Responsabilidades:
+ * - largura e centralização do conteúdo;
+ * - espaçamento entre seções;
+ * - composição da hero;
+ * - grades responsivas;
+ * - primitivas reutilizáveis de layout.
+ */
+
+/* =========================================================
+ * DOCUMENTO
+ * ========================================================= */
+
+body {
+    min-width: 20rem;
+    overflow-x: hidden;
+}
+
+main {
+    display: block;
+}
+
+/* =========================================================
+ * CONTAINER
+ * ========================================================= */
+
+.container {
+    width: min(
+            calc(100% - (2 * var(--space-page-inline))),
+            var(--content-width-xl)
+    );
+
+    margin-inline: auto;
+}
+
+.container--reading {
+    max-width: var(--content-width-reading);
+}
+
+.container--narrow {
+    max-width: var(--content-width-md);
+}
+
+/* =========================================================
+ * SEÇÕES
+ * ========================================================= */
+
+.site-hero,
+.site-projects,
+.site-contact {
+    padding-block: var(--space-section);
+}
+
+.site-hero {
+    display: grid;
+    align-items: center;
+    min-height: 100svh;
+}
+
+.site-projects {
+    min-height: 50vh;
+}
+
+.site-contact {
+    display: grid;
+    align-items: center;
+    min-height: 50vh;
+}
+
+/* =========================================================
+ * CONTEÚDO DAS SEÇÕES
+ * ========================================================= */
+
+.site-hero__content {
+    display: grid;
+    gap: var(--space-6);
+    max-width: var(--content-width-lg);
+}
+
+.site-projects__content,
+.site-contact__content {
+    display: grid;
+    gap: var(--space-10);
+}
+
+.site-contact__content {
+    max-width: var(--content-width-md);
+}
+
+/* =========================================================
+ * GRID DE PROJETOS
+ * ========================================================= */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(min(100%, 18rem), 1fr)
+    );
+
+    gap: var(--space-6);
+    align-items: stretch;
+}
+
+/* =========================================================
+ * PRIMITIVAS REUTILIZÁVEIS
+ * ========================================================= */
+
+/*
+ * Stack:
+ * organiza elementos verticalmente.
+ */
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--stack-gap, var(--space-6));
+}
+
+/*
+ * Cluster:
+ * organiza elementos horizontalmente e permite quebra.
+ * Útil para botões, links e tags.
+ */
+
+.cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--cluster-gap, var(--space-4));
+}
+
+/*
+ * Grid genérico:
+ * quantidade de colunas definida pelo contexto.
+ */
+
+.grid {
+    display: grid;
+    gap: var(--grid-gap, var(--space-6));
+}
+
+/*
+ * Layout de duas colunas.
+ */
+
+.split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-10);
+    align-items: center;
+}
+
+/* =========================================================
+ * ESPAÇAMENTO ENTRE BLOCOS
+ * ========================================================= */
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, var(--space-4));
+}
+
+/* =========================================================
+ * ALINHAMENTO
+ * ========================================================= */
+
+.center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* =========================================================
+ * RESPONSIVIDADE
+ * ========================================================= */
+
+@media (min-width: 48rem) {
+    .split {
+        grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(16rem, 0.8fr);
+    }
+
+    .site-hero__content {
+        gap: var(--space-8);
+    }
+}
+
+@media (max-width: 47.99rem) {
+    .site-hero {
+        min-height: auto;
+        padding-block:
+                clamp(
+                        var(--space-20),
+                        20vh,
+                        var(--space-32)
+                );
+    }
+
+    .site-projects,
+    .site-contact {
+        min-height: auto;
+    }
+}

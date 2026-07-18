@@ -1,0 +1,300 @@
+/*
+ * Edson Barreto — Modern CSS Reset
+ *
+ * Objetivos:
+ * - normalizar comportamentos inconsistentes;
+ * - preservar acessibilidade;
+ * - manter elementos semânticos reconhecíveis;
+ * - evitar estilos excessivamente opinativos.
+ */
+
+/* =========================================================
+ * 1. MODELO DE CAIXA
+ * ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* =========================================================
+ * 2. DOCUMENTO
+ * ========================================================= */
+
+html {
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* =========================================================
+ * 3. MARGENS PADRÃO
+ * A composição vertical será controlada pelo design system.
+ * ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* =========================================================
+ * 4. LISTAS
+ * Remove marcadores apenas quando a lista declara que seu
+ * papel visual não é o de uma lista convencional.
+ * ========================================================= */
+
+ul[role="list"],
+ol[role="list"] {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* =========================================================
+ * 5. TIPOGRAFIA E QUEBRA DE CONTEÚDO
+ * ========================================================= */
+
+body {
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+label {
+    line-height: 0.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote,
+figcaption {
+    overflow-wrap: break-word;
+}
+
+pre,
+code,
+kbd,
+samp {
+    font-family: monospace;
+}
+
+/* =========================================================
+ * 6. LINKS
+ * O estilo visual principal será definido em base.css.
+ * ========================================================= */
+
+a {
+    color: inherit;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* =========================================================
+ * 7. IMAGENS E MÍDIA
+ * ========================================================= */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img,
+picture,
+video {
+    height: auto;
+}
+
+svg {
+    flex-shrink: 0;
+}
+
+/* Evita que imagens sem src apresentem ícone quebrado. */
+
+img:not([src]) {
+    visibility: hidden;
+}
+
+/* =========================================================
+ * 8. FORMULÁRIOS
+ * ========================================================= */
+
+input,
+button,
+textarea,
+select {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    cursor: pointer;
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="reset"]:disabled,
+[type="submit"]:disabled {
+    cursor: not-allowed;
+}
+
+textarea {
+    resize: vertical;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+input,
+textarea,
+select {
+    max-width: 100%;
+}
+
+/* Mantém o botão visualmente neutro somente quando uma classe
+ * de componente será responsável por sua apresentação.
+ */
+
+button {
+    border: 0;
+    background: none;
+}
+
+/* =========================================================
+ * 9. TABELAS
+ * ========================================================= */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* =========================================================
+ * 10. ELEMENTOS INTERATIVOS
+ * ========================================================= */
+
+summary {
+    cursor: pointer;
+}
+
+dialog {
+    padding: 0;
+}
+
+dialog::backdrop {
+    background: rgb(0 0 0 / 0.5);
+}
+
+/* =========================================================
+ * 11. ELEMENTOS OCULTOS
+ * ========================================================= */
+
+[hidden] {
+    display: none !important;
+}
+
+/* Permite ocultar conteúdo visualmente sem removê-lo da
+ * árvore de acessibilidade.
+ */
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Recupera o conteúdo quando ele recebe foco, útil para o
+ * link "Pular para o conteúdo".
+ */
+
+.visually-hidden-focusable:not(:focus, :focus-within) {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip-path: inset(50%) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* =========================================================
+ * 12. ÂNCORAS E ROLAGEM
+ * Evita que títulos ancorados fiquem escondidos pelo header.
+ * ========================================================= */
+
+:target {
+    scroll-margin-block: calc(var(--header-height, 4.5rem) + 1rem);
+}
+
+/* =========================================================
+ * 13. PREFERÊNCIA POR MENOS MOVIMENTO
+ * ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
